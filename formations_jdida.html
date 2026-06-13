@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>تكوين التجارة الرقمية — الجديدة</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #0a2355;
+    --blue: #1a5fa8;
+    --blue-light: #378ADD;
+    --blue-pale: #E6F1FB;
+    --blue-mid: #c8dff7;
+    --green: #25D366;
+    --gold: #EF9F27;
+    --text: #0f172a;
+    --text-muted: #64748b;
+    --bg: #ffffff;
+    --bg-soft: #f5f9ff;
+    --border: #e2ecf8;
+    --font: 'Cairo', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font);
+    color: var(--text);
+    background: var(--bg);
+    direction: rtl;
+    overflow-x: hidden;
+  }
+
+  /* ── NAVBAR ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(10,35,85,0.95);
+    backdrop-filter: blur(12px);
+    padding: 14px 40px;
+    display: flex; align-items: center; justify-content: space-between;
+    border-bottom: 0.5px solid rgba(255,255,255,0.1);
+  }
+  .nav-logo { color: #fff; font-size: 16px; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+  .nav-logo span { color: #85B7EB; }
+  .nav-cta { background: var(--green); color: #fff; font-size: 13px; font-weight: 600; padding: 8px 18px; border-radius: 8px; border: none; cursor: pointer; font-family: var(--font); text-decoration: none; display: inline-flex; align-items: center; gap: 6px; }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+    overflow: hidden;
+    padding: 120px 40px 80px;
+  }
+  .hero-photo {
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(135deg, rgba(10,35,85,0.88) 0%, rgba(10,35,85,0.65) 50%, rgba(10,35,85,0.82) 100%),
+      url('https://images.unsplash.com/photo-1551434678-e076c223a692?w=1600&q=80') center/cover no-repeat;
+  }
+  .hero-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to bottom, transparent 60%, rgba(10,35,85,0.4) 100%);
+  }
+  .hero-content {
+    position: relative; z-index: 2;
+    max-width: 700px; margin: 0 auto; text-align: center;
+  }
+  .badge {
+    display: inline-flex; align-items: center; gap: 7px;
+    background: rgba(55,138,221,0.2);
+    border: 0.5px solid rgba(55,138,221,0.5);
+    color: #a8cfee; font-size: 12px; font-weight: 500;
+    padding: 6px 16px; border-radius: 20px; margin-bottom: 22px;
+  }
+  .hero h1 {
+    font-size: clamp(32px, 5vw, 54px);
+    font-weight: 700; color: #fff;
+    line-height: 1.25; margin-bottom: 16px;
+  }
+  .hero h1 em { color: #85B7EB; font-style: normal; }
+  .hero-desc {
+    font-size: 16px; color: rgba(255,255,255,0.78);
+    line-height: 1.8; max-width: 520px; margin: 0 auto 28px;
+  }
+  .free-pill {
+    display: inline-flex; align-items: center; gap: 7px;
+    background: var(--green); color: #fff;
+    font-size: 15px; font-weight: 700;
+    padding: 9px 24px; border-radius: 30px; margin-bottom: 12px;
+  }
+  .seats-pill {
+    display: inline-flex; align-items: center; gap: 7px;
+    background: rgba(239,159,39,0.2);
+    border: 0.5px solid rgba(239,159,39,0.5);
+    color: #FAC775; font-size: 12px; font-weight: 500;
+    padding: 5px 14px; border-radius: 20px; margin-bottom: 28px;
+  }
+  .hero-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .btn-blue { background: var(--blue-light); color: #fff; font-size: 14px; font-weight: 600; padding: 13px 28px; border-radius: 10px; border: none; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; font-family: var(--font); transition: background 0.15s; }
+  .btn-blue:hover { background: #185FA5; }
+  .btn-green { background: var(--green); color: #fff; font-size: 14px; font-weight: 600; padding: 13px 28px; border-radius: 10px; border: none; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; font-family: var(--font); transition: background 0.15s; }
+  .btn-green:hover { background: #1ebe5a; }
+
+  /* ── STRIP ── */
+  .strip {
+    background: var(--navy); padding: 16px 40px;
+    display: flex; align-items: center; justify-content: center; gap: 32px; flex-wrap: wrap;
+    border-bottom: 0.5px solid rgba(255,255,255,0.08);
+  }
+  .strip-item { display: flex; align-items: center; gap: 7px; color: #a8cfee; font-size: 12px; font-weight: 500; }
+  .strip-item i { font-size: 15px; color: var(--blue-light); }
+
+  /* ── SECTIONS ── */
+  section { padding: 80px 40px; }
+  .container { max-width: 900px; margin: 0 auto; }
+  .sec-label { font-size: 11px; font-weight: 700; letter-spacing: 2px; color: var(--blue-light); text-transform: uppercase; text-align: center; margin-bottom: 10px; }
+  .sec-title { font-size: clamp(22px, 3vw, 32px); font-weight: 700; color: var(--text); text-align: center; margin-bottom: 8px; }
+  .sec-sub { font-size: 14px; color: var(--text-muted); text-align: center; margin-bottom: 48px; line-height: 1.7; }
+
+  /* ── FORMATION CARD ── */
+  .formation-wrap {
+    max-width: 680px; margin: 0 auto;
+    background: var(--bg);
+    border: 2px solid var(--blue-light);
+    border-radius: 20px; overflow: hidden;
+    box-shadow: 0 20px 60px rgba(10,35,85,0.12);
+  }
+  .formation-head {
+    background: linear-gradient(135deg, var(--navy) 0%, #163d7a 100%);
+    padding: 32px 36px; text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .formation-head::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=60') center/cover;
+    opacity: 0.08;
+  }
+  .formation-head-content { position: relative; z-index: 1; }
+  .formation-head h3 { font-size: 20px; font-weight: 700; color: #fff; margin-bottom: 6px; }
+  .formation-head p { font-size: 13px; color: rgba(255,255,255,0.7); margin-bottom: 14px; }
+  .free-tag { display: inline-flex; align-items: center; gap: 6px; background: var(--green); color: #fff; font-size: 13px; font-weight: 700; padding: 5px 16px; border-radius: 20px; }
+  .formation-body { padding: 32px 36px; }
+  .skill-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .skill-item { display: flex; align-items: flex-start; gap: 12px; padding: 14px; border-radius: 12px; background: var(--bg-soft); border: 0.5px solid var(--border); transition: border-color 0.15s; }
+  .skill-item:hover { border-color: var(--blue-light); }
+  .skill-icon { width: 40px; height: 40px; border-radius: 10px; background: var(--blue-pale); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .skill-icon i { font-size: 20px; color: #185FA5; }
+  .skill-name { font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 3px; }
+  .skill-desc { font-size: 12px; color: var(--text-muted); line-height: 1.5; }
+
+  /* ── WHY ── */
+  .why-section { background: var(--bg-soft); border-top: 0.5px solid var(--border); border-bottom: 0.5px solid var(--border); }
+  .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; }
+  .why-card { background: var(--bg); border-radius: 14px; padding: 22px 18px; border: 0.5px solid var(--border); text-align: center; transition: box-shadow 0.15s; }
+  .why-card:hover { box-shadow: 0 8px 24px rgba(10,35,85,0.08); }
+  .why-icon { width: 48px; height: 48px; border-radius: 14px; background: var(--blue-pale); display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; }
+  .why-icon i { font-size: 22px; color: #185FA5; }
+  .why-title { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 5px; }
+  .why-desc { font-size: 12px; color: var(--text-muted); line-height: 1.6; }
+
+  /* ── CTA ── */
+  .cta-section {
+    background: var(--navy);
+    position: relative; overflow: hidden;
+  }
+  .cta-photo {
+    position: absolute; inset: 0;
+    background: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1400&q=70') center/cover no-repeat;
+    opacity: 0.07;
+  }
+  .cta-content { position: relative; z-index: 1; max-width: 560px; margin: 0 auto; text-align: center; }
+  .cta-content h2 { font-size: clamp(22px, 3vw, 34px); font-weight: 700; color: #fff; margin-bottom: 10px; }
+  .cta-content p { font-size: 14px; color: rgba(255,255,255,0.7); margin-bottom: 8px; line-height: 1.7; }
+  .cta-num { color: #85B7EB; font-weight: 700; }
+  .seats-cta { display: inline-flex; align-items: center; gap: 6px; background: rgba(239,159,39,0.18); border: 0.5px solid rgba(239,159,39,0.4); color: #FAC775; font-size: 12px; padding: 5px 14px; border-radius: 16px; margin-bottom: 28px; }
+  .form-card { background: rgba(255,255,255,0.07); border: 0.5px solid rgba(255,255,255,0.15); border-radius: 16px; padding: 28px 24px; backdrop-filter: blur(8px); }
+  .inp { width: 100%; padding: 12px 16px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.18); background: rgba(255,255,255,0.1); color: #fff; font-size: 14px; font-family: var(--font); direction: rtl; outline: none; margin-bottom: 12px; }
+  .inp::placeholder { color: rgba(255,255,255,0.45); }
+  .inp:focus { border-color: rgba(55,138,221,0.7); background: rgba(255,255,255,0.14); }
+  .btn-submit { width: 100%; padding: 14px; background: var(--green); color: #fff; font-size: 15px; font-weight: 700; border: none; border-radius: 10px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; font-family: var(--font); transition: background 0.15s; }
+  .btn-submit:hover { background: #1ebe5a; }
+  .privacy { font-size: 11px; color: rgba(255,255,255,0.38); margin-top: 12px; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #060f1e; padding: 24px 40px;
+    display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+    border-top: 0.5px solid rgba(255,255,255,0.06);
+  }
+  footer p { font-size: 12px; color: rgba(255,255,255,0.3); }
+  .footer-wa { display: inline-flex; align-items: center; gap: 6px; color: var(--green); font-size: 12px; font-weight: 600; text-decoration: none; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 640px) {
+    nav { padding: 12px 20px; }
+    section { padding: 60px 20px; }
+    .hero { padding: 100px 20px 60px; }
+    .strip { padding: 14px 20px; gap: 16px; }
+    .skill-grid { grid-template-columns: 1fr; }
+    .formation-body { padding: 24px 20px; }
+    .formation-head { padding: 24px 20px; }
+    footer { padding: 20px; justify-content: center; text-align: center; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="nav-logo"><i class="ti ti-shopping-bag"></i> مركز <span>الجديدة</span></div>
+  <a href="#register" class="nav-cta"><i class="ti ti-brand-whatsapp"></i> سجل مجاناً</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-photo"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="badge"><i class="ti ti-map-pin"></i> افتتاح مركز الجديدة الجديد</div>
+    <h1>تكوين واحد<br>يعلمك <em>كل شي</em></h1>
+    <p class="hero-desc">التجارة الرقمية، التسويق، والذكاء الاصطناعي — في برنامج شامل واحد، مع محترفين، فقلب مدينة الجديدة</p>
+    <div style="margin-bottom:10px"><span class="free-pill"><i class="ti ti-gift"></i> مجاني بالكامل</span></div>
+    <div><span class="seats-pill"><i class="ti ti-alert-triangle"></i> المقاعد محدودة — سجل قبل امتلاء الأماكن</span></div>
+    <div class="hero-btns">
+      <a href="#register" class="btn-blue"><i class="ti ti-user-plus"></i> سجل دابا</a>
+      <a href="https://wa.me/212785108765" class="btn-green"><i class="ti ti-brand-whatsapp"></i> 07 85 10 87 65</a>
+    </div>
+  </div>
+</div>
+
+<!-- STRIP -->
+<div class="strip">
+  <div class="strip-item"><i class="ti ti-shopping-cart"></i> E-commerce</div>
+  <div class="strip-item"><i class="ti ti-speakerphone"></i> Marketing Digital</div>
+  <div class="strip-item"><i class="ti ti-robot"></i> Intelligence Artificielle</div>
+  <div class="strip-item"><i class="ti ti-trending-up"></i> Revenus en ligne</div>
+  <div class="strip-item"><i class="ti ti-brand-instagram"></i> Social Media Ads</div>
+</div>
+
+<!-- FORMATION -->
+<section>
+  <div class="container">
+    <div class="sec-label">البرنامج</div>
+    <div class="sec-title">شنو غادي تتعلم؟</div>
+    <div class="sec-sub">برنامج شامل — تكوين واحد يغطي كل المهارات اللي محتاجها</div>
+    <div class="formation-wrap">
+      <div class="formation-head">
+        <div class="formation-head-content">
+          <h3>برنامج التجارة الرقمية الشامل</h3>
+          <p>من الصفر حتى تولي تبيع وتسوق بالذكاء الاصطناعي</p>
+          <span class="free-tag"><i class="ti ti-gift"></i> مجاني</span>
+        </div>
+      </div>
+      <div class="formation-body">
+        <div class="skill-grid">
+          <div class="skill-item">
+            <div class="skill-icon"><i class="ti ti-shopping-cart"></i></div>
+            <div><div class="skill-name">التجارة الرقمية</div><div class="skill-desc">بناء متجر إلكتروني من الصفر</div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-icon"><i class="ti ti-speakerphone"></i></div>
+            <div><div class="skill-name">التسويق الرقمي</div><div class="skill-desc">إعلانات فيسبوك وإنستاغرام</div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-icon"><i class="ti ti-robot"></i></div>
+            <div><div class="skill-name">الذكاء الاصطناعي</div><div class="skill-desc">أدوات AI لتسريع خدمتك</div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-icon"><i class="ti ti-trending-up"></i></div>
+            <div><div class="skill-name">تطوير المداخيل</div><div class="skill-desc">استراتيجيات لزيادة الأرباح</div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-icon"><i class="ti ti-brand-instagram"></i></div>
+            <div><div class="skill-name">Social Media</div><div class="skill-desc">محتوى يجذب ويبيع</div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-icon"><i class="ti ti-chart-bar"></i></div>
+            <div><div class="skill-name">التحليل والإحصاء</div><div class="skill-desc">تتبع الأداء واتخاذ القرار</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="why-section">
+  <div class="container">
+    <div class="sec-label">مميزاتنا</div>
+    <div class="sec-title">علاش تختار مركزنا؟</div>
+    <div class="sec-sub">مزايا واضحة وحقيقية</div>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon"><i class="ti ti-gift"></i></div>
+        <div class="why-title">مجاني بالكامل</div>
+        <div class="why-desc">بلا أي تكاليف — فرصة حقيقية للجميع</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon"><i class="ti ti-map-pin"></i></div>
+        <div class="why-title">فقلب الجديدة</div>
+        <div class="why-desc">مركز قريب منك، بدون تنقل بعيد</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon"><i class="ti ti-users"></i></div>
+        <div class="why-title">أفواج صغيرة</div>
+        <div class="why-desc">اهتمام شخصي لكل متدرب</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon"><i class="ti ti-alert-triangle"></i></div>
+        <div class="why-title">المقاعد محدودة</div>
+        <div class="why-desc">سجل قبل امتلاء الأماكن</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA / REGISTER -->
+<section class="cta-section" id="register">
+  <div class="cta-photo"></div>
+  <div class="container">
+    <div class="cta-content">
+      <h2>سجل دابا — مجاناً</h2>
+      <p>خلي بياناتك وغنتصلو بيك عبر واتساب على <span class="cta-num">07 85 10 87 65</span></p>
+      <div style="margin-bottom:24px"><span class="seats-cta"><i class="ti ti-alert-triangle"></i> المقاعد محدودة — سارع بالتسجيل</span></div>
+      <div class="form-card">
+        <input class="inp" type="text" id="f-name" placeholder="السمية" />
+        <input class="inp" type="tel" id="f-phone" placeholder="رقم الهاتف (واتساب)" />
+        <input class="inp" type="text" id="f-city" placeholder="المدينة / الحي" />
+        <button class="btn-submit" onclick="sendToWA()"><i class="ti ti-brand-whatsapp"></i> سجل مجاناً عبر واتساب</button>
+        <div class="privacy">معلوماتك محفوظة — غنستعملوها باش نتواصلو معك فقط</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 مركز الجديدة للتكوين الرقمي — جميع الحقوق محفوظة</p>
+  <a href="https://wa.me/212785108765" class="footer-wa"><i class="ti ti-brand-whatsapp"></i> 07 85 10 87 65</a>
+</footer>
+
+<script>
+function sendToWA() {
+  const name = document.getElementById('f-name').value.trim();
+  const phone = document.getElementById('f-phone').value.trim();
+  const city = document.getElementById('f-city').value.trim();
+  if (!name || !phone) { alert('عافاك علّق السمية ورقم الهاتف'); return; }
+  const msg = encodeURIComponent('مرحبا، سميتي ' + name + ' من ' + (city || 'الجديدة') + '. بغيت نسجل في التكوين المجاني. رقمي: ' + phone);
+  window.open('https://wa.me/212785108765?text=' + msg, '_blank');
+}
+</script>
+</body>
+</html>
